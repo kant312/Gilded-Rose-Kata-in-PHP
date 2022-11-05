@@ -1,2 +1,13 @@
 /vendor/
 /bin/
+/.phpunit.cache
+/.idea/.gitignore
+/.idea/Gilded-Rose-Kata-in-PHP.iml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/php-test-framework.xml
+/.idea/phpunit.xml
+/.idea/vcs.xml
+/.phpunit.result.cache
+/phpunit
+/phpunit.xml
