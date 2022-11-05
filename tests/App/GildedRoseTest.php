@@ -67,10 +67,7 @@ class GildedRoseTest extends TestCase
         self::assertEquals(8, $gildedRose->item()->getQuality());
     }
 
-    /**
-     * TODO: should be re-enabled once we start refactoring
-     */
-    public function _test_quality_cannot_be_initialized_over_50(): void
+    public function test_quality_cannot_be_initialized_over_50(): void
     {
         $gildedRose = GildedRose::of(...$this->makeItem(51, 1));
         self::assertEquals(50, $gildedRose->item()->getQuality());
