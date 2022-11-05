@@ -29,6 +29,12 @@ class ItemFactoryTest extends TestCase
         self::assertInstanceOf(Item::class, $agedBrie);
     }
 
+    public function test_it_creates_conjured_item()
+    {
+        $conjured = ItemFactory::create(ItemFactory::CONJURED, 1, 1);
+        self::assertInstanceOf(Item::class, $conjured);
+    }
+
     public function test_it_creates_sulfura()
     {
         $sulfura = ItemFactory::create(ItemFactory::SULFURAS_HAND_OF_RAGNAROS, 1, 1);

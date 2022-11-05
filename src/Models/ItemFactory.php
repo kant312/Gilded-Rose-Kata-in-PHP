@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\AgingStrategies\BackstageConcertAgingStrategy;
 use App\AgingStrategies\CheeseAgingStrategy;
+use App\AgingStrategies\ConjuredAgingStrategy;
 use App\AgingStrategies\RegularAgingStrategy;
 use App\AgingStrategies\SulfurasAgingStrategy;
 use App\ValueObjects\Quality;
@@ -13,6 +14,7 @@ final class ItemFactory
 {
     public const AGED_BRIED = 'Aged Brie';
     public const BACKSTAGE_CONCERT = 'Backstage passes to a TAFKAL80ETC concert';
+    public const CONJURED = 'Conjured item';
     public const SULFURAS_HAND_OF_RAGNAROS = 'Sulfuras, Hand of Ragnaros';
 
     public static function create(string $name, int $quality, int $sellIn)
@@ -29,6 +31,12 @@ final class ItemFactory
                 Quality::ofRegularItem($quality),
                 SellIn::fromInt($sellIn),
                 new BackstageConcertAgingStrategy()
+            ),
+            self::CONJURED => Item::from(
+                $name,
+                Quality::ofRegularItem($quality),
+                SellIn::fromInt($sellIn),
+                new ConjuredAgingStrategy()
             ),
             self::SULFURAS_HAND_OF_RAGNAROS => Item::from(
                 $name,

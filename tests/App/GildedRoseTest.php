@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\ItemFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -57,6 +58,13 @@ class GildedRoseTest extends TestCase
         $gildedRose = GildedRose::of(...$this->makeItem(4, 2, 'Aged Brie'));
         $gildedRose->tick();
         self::assertEquals(5, $gildedRose->item()->getQuality());
+    }
+
+    public function test_conjured_item_quality_degrade_twice_as_fast(): void
+    {
+        $gildedRose = GildedRose::of(...$this->makeItem(10, 4, ItemFactory::CONJURED));
+        $gildedRose->tick();
+        self::assertEquals(8, $gildedRose->item()->getQuality());
     }
 
     /**
